@@ -1,0 +1,8 @@
+{
+  "type": "module",
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "path": "^0.12.7",
+    "readline-sync": "^1.4.10"
+  }
+}

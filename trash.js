@@ -1,3 +1,8 @@
+import fs from 'fs'
+import path from 'path'
+import readlineSync from 'readline-sync'
+import setPerson from "./utility"
+
 class TribeMember {
     constructor(name){
         this.name = name
@@ -91,6 +96,21 @@ class Rednek extends TribeMember {
         this.getInfo()
         console.log(`aboba ${this.name} реднек с войной ${this.war}`)
     }
+}
+
+class Tamagavk extends Apache {
+    constructor(name) {
+        super(name)
+    }
+}
+
+class dog {
+    constructor(name) {
+        this.name = name
+        this.health = 50
+        this.damage = 10
+    }
+
 }
 
 class Item {

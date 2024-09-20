@@ -11,19 +11,24 @@ const setPerson = (person) => {
     const peopleList = JSON.parse(fs.readFileSync(path))
     peopleList.alive.push(person)
     fs.writeFileSync(path, JSON.stringify(peopleList, null, 2))
-    console.log(peopleList)
 }
 
-// const addDeadPerson = (person) => {
-//     const path = getPath('\/people.json')
-//     const peopleList = JSON.parse(fs.readFileSync(path))
-//     const namePerson = person.name
-//     const deadMan = peopleList.alive.filter(({name}) => name === namePerson)
-    
-//     const newArrayDead = [...peopleList.alive.slice(0, indexAlivePerson - 1), ...peopleList.alive.slice(indexAlivePerson)]
-//     peopleList.dead.push(person)
-//     fs.writeFileSync(path, JSON.stringify(peopleList, null, 2))
-//     console.log(peopleList)
-// }
+const addDeadPerson = (person) => {
+    const path = getPath('\/people.json')
+    const peopleList = JSON.parse(fs.readFileSync(path))
+    console.log(peopleList)
+    const namePerson = person.name
+    const deadManIndex = peopleList.alive.findIndex(({name}) => name === namePerson)
+    console.log(deadManIndex)
+    // const deadMan = peopleList.alive.find(({name}) => name === namePerson)
+    peopleList.alive.splice(deadManIndex, 1)
+    peopleList.dead.push(person)
+    fs.writeFileSync(path, JSON.stringify(peopleList, null, 2))
+}
+
+setPerson({name: 'vova1'})
+setPerson({name: 'vova2'})
+setPerson({name: 'vova3'})
+addDeadPerson({name: 'vova2'})
 
 export default setPerson

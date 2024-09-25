@@ -1,6 +1,8 @@
 import fs from 'fs'
 import path from 'path'
 import readlineSync from 'readline-sync'
+import { Apache, Rednek, Weapon, Tools } from './trash.js'
+import _ from lodash
 
 const getPath = (fPath) => {
     return path.resolve() + fPath
@@ -9,26 +11,58 @@ const getPath = (fPath) => {
 const setPerson = (person) => {
     const path = getPath('\/people.json')
     const peopleList = JSON.parse(fs.readFileSync(path))
-    peopleList.alive.push(person)
-    fs.writeFileSync(path, JSON.stringify(peopleList, null, 2))
+    const namePerson = person.name
+    const liveManIndex = peopleList.alive.findIndex(({name}) => name === namePerson)
+    if (liveManIndex === -1) {
+        peopleList.alive.push(person)
+        fs.writeFileSync(path, JSON.stringify(peopleList, null, 2))
+    } else {
+        peopleList.alive.splice(liveManIndex, 1)
+        peopleList.alive.push(person)
+        fs.writeFileSync(path, JSON.stringify(peopleList, null, 2))
+    }
 }
 
 const addDeadPerson = (person) => {
     const path = getPath('\/people.json')
     const peopleList = JSON.parse(fs.readFileSync(path))
-    console.log(peopleList)
     const namePerson = person.name
     const deadManIndex = peopleList.alive.findIndex(({name}) => name === namePerson)
-    console.log(deadManIndex)
     // const deadMan = peopleList.alive.find(({name}) => name === namePerson)
     peopleList.alive.splice(deadManIndex, 1)
     peopleList.dead.push(person)
     fs.writeFileSync(path, JSON.stringify(peopleList, null, 2))
 }
 
-setPerson({name: 'vova1'})
-setPerson({name: 'vova2'})
-setPerson({name: 'vova3'})
-addDeadPerson({name: 'vova2'})
+const backToClass = (name) => {
+    const path = getPath('\/people.json')
+    const peopleList = JSON.parse(fs.readFileSync(path))
+    const peopleIndex = peopleList.alive.findIndex(({nameIter}) => name === nameIter)
+    const obj = peopleList.alive[peopleIndex]
 
-export default setPerson
+    switch (obj.classForFunction) {
+        case 'Apache': 
+            classObject = new Apache(name)
+            break
+        case 'Redneck': 
+            classObject = new Rednek(name)
+            break
+        case 'Weapon': 
+            classObject = new Weapon(name)
+            break
+        default:
+            className = new Tools(name)
+            break
+    }
+    // const newClass = new className(name)
+    const entries = Object.entries(obj)
+    for ([key, value] of entries) {
+        if (_.isObject(value)) {
+            classObject[key] = value.map((item) => backToClass(item))
+        } else {
+            classObject[key] = value
+        }
+    }
+}
+
+export { setPerson, addDeadPerson }

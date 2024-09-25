@@ -1,15 +1,4 @@
 {
-  "alive": [
-    {
-      "name": "vova1"
-    },
-    {
-      "name": "vova3"
-    }
-  ],
-  "dead": [
-    {
-      "name": "vova2"
-    }
-  ]
+  "alive": [],
+  "dead": []
 }

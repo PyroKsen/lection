@@ -40,6 +40,7 @@ const backToClass = (name) => {
     const peopleIndex = peopleList.alive.findIndex(({nameIter}) => name === nameIter)
     const obj = peopleList.alive[peopleIndex]
 
+    let classObject;
     switch (obj.classForFunction) {
         case 'Apache': 
             classObject = new Apache(name)
@@ -63,6 +64,7 @@ const backToClass = (name) => {
             classObject[key] = value
         }
     }
+    return classObject
 }
 
 export { setPerson, addDeadPerson }

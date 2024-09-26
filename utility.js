@@ -9,7 +9,7 @@ import {
 const getPath = (fPath) => path.resolve() + fPath;
 
 const setPerson = (person) => {
-  const path = getPath('\/people.json');
+  const path = getPath('/people.json');
   const peopleList = JSON.parse(fs.readFileSync(path));
   const namePerson = person.name;
   const liveManIndex = peopleList.alive.findIndex(({ name }) => name === namePerson);
@@ -24,7 +24,7 @@ const setPerson = (person) => {
 };
 
 const addDeadPerson = (person) => {
-  const path = getPath('\/people.json');
+  const path = getPath('/people.json');
   const peopleList = JSON.parse(fs.readFileSync(path));
   const namePerson = person.name;
   const deadManIndex = peopleList.alive.findIndex(({ name }) => name === namePerson);
@@ -35,7 +35,7 @@ const addDeadPerson = (person) => {
 };
 
 const backToClass = (name) => {
-  const path = getPath('\/people.json');
+  const path = getPath('/people.json');
   const peopleList = JSON.parse(fs.readFileSync(path));
   const peopleIndex = peopleList.alive.findIndex(({ nameIter }) => name === nameIter);
   const obj = peopleList.alive[peopleIndex];

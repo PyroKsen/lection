@@ -2,47 +2,47 @@ import fs from 'fs';
 import path from 'path';
 import readlineSync from 'readline-sync';
 import _ from 'lodash';
-import Animals from '../classes/animals.js';
-import Apache from '../classes/apache.js';
-import Dogs from '../classes/dogs.js';
-import Item from '../classes/item.js';
-import Rednek from '../classes/rednek.js';
-import Tamagavk from '../classes/tamagavk.js';
-import Tools from '../classes/tools.js';
-import TribeMember from '../classes/tribeMember.js';
-import Weapon from '../classes/weapon.js';
+import Animals from './classes/animals.js';
+import Apache from './classes/apache.js';
+import Dogs from './classes/dogs.js';
+import Item from './classes/item.js';
+import Rednek from './classes/rednek.js';
+import Tamagavk from './classes/tamagavk.js';
+import Tools from './classes/tools.js';
+import TribeMember from './classes/tribeMember.js';
+import Weapon from './classes/weapon.js';
 
 const getPath = (fPath) => path.resolve() + fPath;
 
 const setPerson = (person) => {
-  const path = getPath('/people.json');
-  const peopleList = JSON.parse(fs.readFileSync(path));
+  const fpath = getPath('/people.json');
+  const peopleList = JSON.parse(fs.readFileSync(fpath));
   const namePerson = person.name;
   const liveManIndex = peopleList.alive.findIndex(({ name }) => name === namePerson);
   if (liveManIndex === -1) {
     peopleList.alive.push(person);
-    fs.writeFileSync(path, JSON.stringify(peopleList, null, 2));
+    fs.writeFileSync(fpath, JSON.stringify(peopleList, null, 2));
   } else {
     peopleList.alive.splice(liveManIndex, 1);
     peopleList.alive.push(person);
-    fs.writeFileSync(path, JSON.stringify(peopleList, null, 2));
+    fs.writeFileSync(fpath, JSON.stringify(peopleList, null, 2));
   }
 };
 
 const addDeadPerson = (person) => {
-  const path = getPath('/people.json');
-  const peopleList = JSON.parse(fs.readFileSync(path));
+  const fpath = getPath('/people.json');
+  const peopleList = JSON.parse(fs.readFileSync(fpath));
   const namePerson = person.name;
   const deadManIndex = peopleList.alive.findIndex(({ name }) => name === namePerson);
   // const deadMan = peopleList.alive.find(({name}) => name === namePerson)
   peopleList.alive.splice(deadManIndex, 1);
   peopleList.dead.push(person);
-  fs.writeFileSync(path, JSON.stringify(peopleList, null, 2));
+  fs.writeFileSync(fpath, JSON.stringify(peopleList, null, 2));
 };
 
 const backToClass = (name) => {
-  const path = getPath('/people.json');
-  const peopleList = JSON.parse(fs.readFileSync(path));
+  const fpath = getPath('/people.json');
+  const peopleList = JSON.parse(fs.readFileSync(fpath));
   const peopleIndex = peopleList.alive.findIndex(({ nameIter }) => name === nameIter);
   const obj = peopleList.alive[peopleIndex];
 
@@ -58,7 +58,7 @@ const backToClass = (name) => {
       classObject = new Weapon(name);
       break;
     default:
-      className = new Tools(name);
+      classObject = new Tools(name);
       break;
   }
   // const newClass = new className(name)

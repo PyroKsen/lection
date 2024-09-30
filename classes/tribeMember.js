@@ -13,7 +13,7 @@ class TribeMember {
   }
 
   tame(pet) {
-    if (this.pets.indexOf(pet) !== -1) return console.log('Животное уже одомашнено, теперь оно затворник');
+    if (this.pets.indexOf(pet) !== -1) console.log('Животное уже одомашнено, теперь оно затворник');
     if (pet.wild > 0) {
       pet.wild -= this.tameSkill;
       console.log('Вы смогли чутка погладить животное, но оно всё ещё косо на вас смотрит');

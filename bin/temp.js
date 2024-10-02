@@ -12,37 +12,10 @@ import Tamagavk from '../classes/tamagavk.js';
 // import TribeMember from '../classes/tribeMember.js';
 // import Weapon from '../classes/weapon.js';
 
-import { setPerson } from '../utility.js';
+import { setPerson, createObject, addItem } from '../utility.js';
 
-const Vitaly = new Apache('Vitaly');
-Vitaly.getDescription();
-setPerson(Vitaly);
-const Daniil = new Rednek('Daniil');
-Daniil.getDescription();
-setPerson(Daniil);
-const Jon = new Tamagavk('Jon');
-Jon.getDescription();
-setPerson(Jon);
+createObject()
 
-// const Boby = new Dogs('Вoby');
-// console.log(Boby)
-// console.log(Jon)
+createObject()
 
-// Jon.tame(Boby)
-// Jon.tame(Boby)
-// Jon.tame(Boby)
-// Jon.tame(Boby)
-// Jon.tame(Boby)
-// Jon.tame(Boby)
-// Jon.tame(Boby)
-// Jon.train(Boby)
-
-// console.log(Boby)
-// console.log(Jon)
-
-// const motiga = new Tools('motiga')
-// Vitaly.addTool(motiga)
-
-// const axe = new Weapon('axe')
-// Daniil.addTool(axe)
-// Daniil.getToolList()
+addItem()

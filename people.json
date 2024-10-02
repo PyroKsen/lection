@@ -1,4 +1,45 @@
 {
-  "alive": [],
-  "dead": []
+  "alive": [
+    {
+      "name": "max",
+      "age": 57,
+      "health": 63,
+      "nakopitel": 0,
+      "tools": [],
+      "pets": [],
+      "damage": 30,
+      "tameSkill": 15,
+      "live": 1,
+      "classForFunction": "Rednek",
+      "war": 94
+    },
+    {
+      "name": "maks",
+      "age": 39,
+      "health": 82,
+      "nakopitel": 0,
+      "tools": [],
+      "pets": [],
+      "damage": 30,
+      "tameSkill": 15,
+      "live": 1,
+      "classForFunction": "Rednek",
+      "war": 34
+    }
+  ],
+  "dead": [],
+  "items": [
+    {
+      "name": "addfr",
+      "durability": 10,
+      "classForFunction": "Tools",
+      "damage": 2
+    },
+    {
+      "name": "kol",
+      "durability": 10,
+      "classForFunction": "Tools",
+      "damage": 2
+    }
+  ]
 }

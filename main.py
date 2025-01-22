@@ -39,17 +39,64 @@ import math
 # 2 * * * 2
 # * 2 * 2 *
 
-x_1 = 0
-y_1 = 0
-x_2 = -3
-y_2 = 2
+# x_1 = 0
+# y_1 = 0
+# x_2 = -3
+# y_2 = 2
 
-x1 = int(input())
-x2 = int(input())
-x3 = int(input())
-x4 = int(input())
+# dx = abs(x_2 - x_1)
+# dy = abs(y_2 - y_1)
 
-if (x_2 + 1 == x_1 and y_2 - 2 == y_1) or (x_2 + 2 == x_1 and y_2 - 1 == y_1) or (x_2 - 1 == x_1 and y_2 - 2 == y_1) or (x_2 - 2 == x_1 and y_2 - 1 == y_1) or (x_2 - 2 == x_1 and y_2 + 1 == y_1) or (x_2 - 1 == x_1 and y_2 + 2 == y_1) or (x_2 + 1 == x_1 and y_2 + 2 == y_1) or (x_2 + 2 == x_1 and y_2 + 1 == y_1):
-    print(True)
+# if (dx == 2 and dy == 1) or (dx == 1 and dy == 2):
+#     print(True)
+# else:
+#     print(False)
+
+# x_1 = 8
+# x_2 = 2
+# k = 13
+# s = x_1 * x_2
+
+# if ((k%x_1 == 0 or k%x_2 == 0) and s >= k):
+#     print(True)
+# else:
+#     print(False)
+
+'''
+x_1 = 10 #длинна (должна быть больше ширины)
+x_2 = 5 #ширина
+x_1l = 4 #до длинного
+x_2sh = 5 #до широкого
+dbs = 0 #до ближайшего широкого
+dbl = 0 #до ближайшего длинного
+if (x_2 - x_1l < x_1l):
+    dbs = x_2 - x_1l
 else:
-    print(False)
+    dbs = x_2sh
+if (x_1 - x_2sh < x_2sh):
+    dbl = x_1 - x_2sh
+else:
+    dbl = x_1l
+if (dbs > dbl):
+    print(dbl)
+else:
+    print(dbs)
+'''
+r = 10
+v = 1
+b = 7
+d = 1
+print(1)
+for i in range(2, b):
+    v = 10*v
+    d = d + i*v
+    d_as_str = str(d)
+    r_d = d_as_str[::-1]
+    n_d = int(r_d)
+    print(n_d)
+new_d = str(n_d)
+ddd = new_d[:-1]
+while (b > 1):
+    print(ddd)
+    ddd = ddd[:-1]
+    b -= 1

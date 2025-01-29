@@ -82,21 +82,34 @@ if (dbs > dbl):
 else:
     print(dbs)
 '''
-r = 10
-v = 1
-b = 7
-d = 1
-print(1)
-for i in range(2, b):
-    v = 10*v
-    d = d + i*v
-    d_as_str = str(d)
-    r_d = d_as_str[::-1]
-    n_d = int(r_d)
-    print(n_d)
-new_d = str(n_d)
-ddd = new_d[:-1]
-while (b > 1):
-    print(ddd)
-    ddd = ddd[:-1]
-    b -= 1
+# r = 10
+# v = 1
+# b = 7
+# d = 1
+# print(1)
+# for i in range(2, b):
+#     v = 10*v
+#     d = d + i*v
+#     d_as_str = str(d)
+#     r_d = d_as_str[::-1]
+#     n_d = int(r_d)
+#     print(n_d)
+# new_d = str(n_d)
+# ddd = new_d[:-1]
+# while (b > 1):
+#     print(ddd)
+#     ddd = ddd[:-1]
+#     b -= 1
+
+
+lst = [2, 3, 4, 4, 5, 6, 7, 8]
+print(lst)
+print(lst[2])
+print(lst[-2])
+print(lst[0:4])
+print(lst[0:5])
+print(lst[0:7:2])
+print(lst[1:7:2])
+print(lst[7:0:-1])
+print(lst[7:0:-2])
+print(8)

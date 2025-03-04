@@ -3,6 +3,7 @@
   "dependencies": {
     "fs": "^0.0.1-security",
     "lodash": "^4.17.21",
+    "os": "^0.1.2",
     "path": "^0.12.7",
     "readline-sync": "^1.4.10"
   },

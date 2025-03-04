@@ -1,4 +1,6 @@
 import math
+from collections import Counter
+import itertools
 # n = int(input('сколько см ползёт вверх: '))
 # m = int(input('сколько см cползает вниз: '))
 # y = int(input('сколько см vetka: '))
@@ -102,14 +104,79 @@ else:
 #     b -= 1
 
 
-lst = [2, 3, 4, 4, 5, 6, 7, 8]
-print(lst)
-print(lst[2])
-print(lst[-2])
-print(lst[0:4])
-print(lst[0:5])
-print(lst[0:7:2])
-print(lst[1:7:2])
-print(lst[7:0:-1])
-print(lst[7:0:-2])
-print(8)
+# lst = [2, 3, 4, 4, 5, 6, 7, 8]
+# print(lst)
+# print(lst[2])
+# print(lst[-2])
+# print(lst[0:4])
+# print(lst[0:5])
+# print(lst[0:7:2])
+# print(lst[1:7:2])
+# print(lst[7:0:-1])
+# print(lst[7:0:-2])
+# print(8)
+
+# n = 10
+# k = 3
+
+# text = 'rrr rRr rrR ddd ddd apple apple'
+
+# slova = text.lower().split()
+# slovoCounst = Counter(slova)
+# megaPopularSlovo = slovoCounst.most_common(1)[0][0]
+# print(megaPopularSlovo)
+
+# files_count = 3
+# files_names = 'main.py rw,maxim.js r,python.py rwx'
+# zapros_count = 3
+# file_zapros = 'main.py w,maxim.js rwx,py.py wx'
+
+# def rrr(files_names, file_zapros):
+#     rules = files_names.split(',')
+#     for i in rules:
+#         m_rules = i.split(' ')
+#         print(m_rules)
+#     # rule_zapros = file_zapros.split(',')
+#     # for n in rule_zapros:
+#     #     z_rules = n.split(' ')
+#     # print(z_rules)
+#     # c = list(set(m_rules) & set(z_rules))
+#     # print(c)
+# rrr(files_names, file_zapros)
+
+# * . * . *
+# . * * * .
+# * * * * *
+# . * * * .
+# * . * . *
+
+# grt = ''
+
+# def zv(n):
+#     d = n
+#     while (d > 3):
+#         grt = '*'
+#         zzz = '.'*(int((d-3)))
+#         fff = '.'*(n-(d))
+#         lbs = fff  + grt   + zzz   + grt   + zzz   + grt  + fff
+#         print(lbs)
+#         d -= 1
+#     g = int((n - 3))
+#     first = "."*(g) + '***' + "."*g
+#     second = '*'*n
+# zv(11)
+
+
+
+N = int(input("сколько чисел будет: "))
+spam = list(range(0, N+1))
+while (len(spam) > 1):
+    centre = int(len(spam)/2)
+    r = (input(f"ваче шисло меньше {spam[centre]}? (yes/no)"))
+    if r == 'no':
+        centre = int(len(spam)/2)
+        del spam[0:centre]
+    else:
+        centre = int(len(spam)/2)
+        del spam[centre:]
+print(spam[0])
